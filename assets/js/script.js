@@ -1,20 +1,22 @@
 let textbox = document.querySelector('#enter-choice'),
     choice_tags = document.querySelector('#choice-tags'),
-    tag_name = document.querySelector('textarea[]').value,
     text_pattern = /,$/;
+
+
+    textbox.addEventListener('keypress',function(){
+   
+    let text = textbox.value;
     
 
-textbox.addEventListener('keypress',function(){
-  console.log(tag_name);
-  
-  
-  
-    // let tag=document.createElement('span'),
-    //     tag_text =document.createTextNode(tag_name);
-    // tag.setAttribute('class','span-tag');
-    // choice_tags.appendChild(tag);
-    // document.querySelector('.')
-    
+    if(text.match(text_pattern)){
+    let tag=document.createElement('span');
+    choice_tags.appendChild(tag);
+    tag.setAttribute('class','span-tag');
+    let span_tag = document.querySelector('.span-tag');
+        
+        span_tag.innerText = text;
+       
+}    
 })
 
 
