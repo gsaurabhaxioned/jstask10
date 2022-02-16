@@ -8,19 +8,28 @@ let textbox = document.querySelector('#enter-choice'),
        
      text = textbox.value;
      let text_array=text.split(',');
-     if(text.length == 1 || e.keyCode==188 && e.keyCode != 8){
+     if(text.length == 1 || e.keyCode==188){
+         if(e.keyCode == 32){
+        
+     }else{
         let tag=document.createElement('span');
              choice_tags.appendChild(tag);
              tag.setAttribute('class','span-tag');
      }
+    }
      let span_tag = document.querySelectorAll('.span-tag');
 
      text_array.forEach((i,index)=>{
          span_tag[index].innerText = text_array[index];
+         if(text_array[index]==""){
+             span_tag[index].style.display = "none";
+         }else{
+            span_tag[index].style.display = "inline-block";
+         }
         
         });
     
-
+    });
     //e.keyCode==188
        
 
@@ -50,7 +59,7 @@ let textbox = document.querySelector('#enter-choice'),
         // }
        
 // }    
-})
+// })
 
 
 
