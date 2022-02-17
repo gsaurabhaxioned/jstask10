@@ -3,7 +3,7 @@ let textbox = document.querySelector('#enter-choice'),
     text = "";
 
 
-textbox.addEventListener('keyup', function (e) {
+textbox.addEventListener('keydown', function (e) {
 
     text = textbox.value;
    
