@@ -1,7 +1,7 @@
 let textbox = document.querySelector('#enter-choice'),
     choice_tags = document.querySelector('#choice-tags'),
-    text = "",
-    i=0;
+    text = "";
+    i = 0;
 
 
 textbox.addEventListener('keydown', function (e) {
@@ -12,7 +12,7 @@ textbox.addEventListener('keydown', function (e) {
         choice_tags.innerHTML = "";
     } else {
         let text_array = text.split(',');
-        if ((text.length == 1 || e.keyCode == 188) && e.keyCode != 32 && e.keyCode != 8) {
+        if ((text.length === 1 || e.keyCode === 188) && e.keyCode != 32 && e.keyCode != 8) {
             if (text[0] != ",") {
                 let tag = document.createElement('span');
                 choice_tags.appendChild(tag);
@@ -20,8 +20,8 @@ textbox.addEventListener('keydown', function (e) {
             } else {
                 textbox.value = "";
             }
-        }
-
+        
+    }
         let span_tag = document.querySelectorAll('.span-tag');
 
         text_array.forEach((i, index) => {
@@ -36,7 +36,7 @@ textbox.addEventListener('keydown', function (e) {
             }
         })
     }
-    
+
 });
 
 textbox.addEventListener('blur', function () {
@@ -48,27 +48,49 @@ textbox.addEventListener('focus', function () {
     textbox.style.outline = "1px solid #fff";
 })
 
-function colorchange(){
+function colorchange() {
     let span_tag = document.querySelectorAll('.span-tag');
-    span_tag.forEach(i=>{
-        i.style.backgroundColor="#FFA500";
+    
+    span_tag.forEach(i => {
+        i.style.backgroundColor = "#FFA500";
     })
 
-    if(i== span_tag.length-1){
-        i=0;
-    }else{
+    if (i == span_tag.length - 1) {
+        i = 0;
+    } else {
         i++;
     }
-    span_tag[i].style.backgroundColor="#273C75";
-
-}
     
+    
+    span_tag[i].style.backgroundColor = "#273C75";
+    
+    textbox.value="";
+}
 
-textbox.addEventListener('keypress',function(e){
-        if(e.keyCode === 13){
-            textbox.value="";
-        let changingcolor=setInterval('colorchange()',100);
 
+textbox.addEventListener('keypress', function (e) {
+
+    if (e.keyCode === 13) {
+        
+    if(textbox.value==""){
+        e.preventDefault();
+    }else{
+        e.preventDefault();
+        let form = document.querySelector(".form"),
+            changingcolor = setInterval('colorchange()', 100);
+           
+        // form.reset();
+        // textbox.value="";
+        
+        setTimeout(() => {
+            clearInterval(changingcolor);
+        }, 2000);
+        this.addEventListener('keydown',function(){
+            clearInterval(changingcolor);
+        });
     }
 
+}
+
 })
+
