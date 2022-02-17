@@ -153,6 +153,10 @@ h1,p {
   font-weight: normal;
 }
 
+.change-color {
+  background-color: #273C75;
+}
+
 /*=================================
   main styling ends here
 =================================*/
