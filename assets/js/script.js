@@ -1,6 +1,7 @@
 let textbox = document.querySelector('#enter-choice'),
     choice_tags = document.querySelector('#choice-tags'),
-    text = "";
+    text = "",
+    i=0;
 
 
 textbox.addEventListener('keydown', function (e) {
@@ -45,4 +46,29 @@ textbox.addEventListener('blur', function () {
 textbox.addEventListener('focus', function () {
     textbox.style.border = "2px solid #000";
     textbox.style.outline = "1px solid #fff";
+})
+
+function colorchange(){
+    let span_tag = document.querySelectorAll('.span-tag');
+    span_tag.forEach(i=>{
+        i.style.backgroundColor="#FFA500";
+    })
+
+    if(i== span_tag.length-1){
+        i=0;
+    }else{
+        i++;
+    }
+    span_tag[i].style.backgroundColor="#273C75";
+
+}
+    
+
+textbox.addEventListener('keypress',function(e){
+        if(e.keyCode === 13){
+            textbox.value="";
+        let changingcolor=setInterval('colorchange()',100);
+
+    }
+
 })
