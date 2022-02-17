@@ -121,7 +121,7 @@ main {
 }
 
 .choice-box {
-  flex-basis: 32.4%;
+  width: 500px;
 }
 
 h1,p {
@@ -130,9 +130,11 @@ h1,p {
 
 #enter-choice {
   width: 100%;
+  padding-left: 10px;
   margin-top: 19px;
   border: 2px solid #000;
   border-radius: 3x;
+  box-sizing: border-box;
   outline: 1px solid #fff;
   font-size: 15px;
 }
