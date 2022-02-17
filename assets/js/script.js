@@ -35,6 +35,7 @@ textbox.addEventListener('keydown', function (e) {
             }
         })
     }
+    
 });
 
 textbox.addEventListener('blur', function () {
