@@ -6,7 +6,7 @@ let textbox = document.querySelector('#enter-choice'),
 textbox.addEventListener('keydown', function (e) {
 
     text = textbox.value;
-   
+
     if (text == "") {
         choice_tags.innerHTML = "";
     } else {
